@@ -1,3 +1,7 @@
 package myOwnVersion.Cards.CardSystems;
 
-public abstract class CardSystem {}
+
+
+public abstract class CardSystem {
+
+}
