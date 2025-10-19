@@ -1,7 +1,7 @@
 package myOwnVersion.Cards;
 
 // Enum representing different card symbols
-public enum CardSymbol {
+public enum CardSymbolType {
     VICTORY_POINT,
     SKILL_POINT,
     PROGRESS_POINT,

@@ -1,10 +1,10 @@
-package myOwnVersion.Cards.CardSystems;
+package myOwnVersion.Cards;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
-import myOwnVersion.Cards.Card;
+import myOwnVersion.Cards.CardSystems.CardSystem;
 
 public class CardHandeler {
     private static CardHandeler instance;

@@ -2,8 +2,8 @@ package myOwnVersion.Cards.CardSystems;
 
 import myOwnVersion.Principality;
 import myOwnVersion.Cards.Card;
+import myOwnVersion.Cards.CardSymbolType;
 import myOwnVersion.Cards.CardSymbol;
-import myOwnVersion.Cards.CardSymbolReward;
 import myOwnVersion.Cards.CardComponents.HasSymbolRewardCardComponent;
 
 /**
@@ -17,12 +17,12 @@ public class HasCardSymbolCardSystem extends CardSystem {
      * @param type the type of the CardSymbolReward to retrieve
      * @return the CardSymbolReward of the specified type, or null if not found
      */
-    public CardSymbolReward getResourceFromType(Card card, CardSymbol type) {
+    public CardSymbol getResourceFromType(Card card, CardSymbolType type) {
         if (!card.hasComponent(HasSymbolRewardCardComponent.class)) {
             return null;
         }
         HasSymbolRewardCardComponent component = card.getComponent(HasSymbolRewardCardComponent.class);
-        for (CardSymbolReward reward : component.rewards) {
+        for (CardSymbol reward : component.rewards) {
             if (reward.getCardSymbol() == type) {
                 return reward;
             }
@@ -36,7 +36,7 @@ public class HasCardSymbolCardSystem extends CardSystem {
      * @param type the type of the CardSymbolReward to check for
      * @return true if the card has a CardSymbolReward of the specified type, false otherwise
      */
-    public boolean hasResourceType(Card card, CardSymbol type) {
+    public boolean hasResourceType(Card card, CardSymbolType type) {
         return getResourceFromType(card, type) != null;
     }
 
@@ -46,12 +46,12 @@ public class HasCardSymbolCardSystem extends CardSystem {
      * @param type the type of the CardSymbolReward to sum
      * @return a CardSymbolReward representing the total amount of the specified type
      */
-    public CardSymbolReward getAllRewardsFromPrincipality (Principality principality, CardSymbol type) {
-        CardSymbolReward reward = new CardSymbolReward(type, 0);
+    public CardSymbol getAllRewardsFromPrincipality (Principality principality, CardSymbolType type) {
+        CardSymbol reward = new CardSymbol(type, 0);
         Card[] cards = principality.getPlayedCards();
         for (Card card : cards) {
-            CardSymbolReward cardReward = getResourceFromType(card, type);
-            reward = new CardSymbolReward(type, reward.getAmount() + (cardReward != null ? cardReward.getAmount() : 0));
+            CardSymbol cardReward = getResourceFromType(card, type);
+            reward = new CardSymbol(type, reward.getAmount() + (cardReward != null ? cardReward.getAmount() : 0));
         }
         return reward;
     }

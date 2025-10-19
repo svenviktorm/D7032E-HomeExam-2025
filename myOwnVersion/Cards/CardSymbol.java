@@ -1,10 +1,10 @@
 package myOwnVersion.Cards;
 
-public class CardSymbolReward {
+public class CardSymbol {
     private final int amount;
-    private final CardSymbol symbol;
+    private final CardSymbolType symbol;
 
-    public CardSymbolReward(CardSymbol symbol, int amount) {
+    public CardSymbol(CardSymbolType symbol, int amount) {
         this.amount = amount;
         this.symbol = symbol;
     }
@@ -13,7 +13,7 @@ public class CardSymbolReward {
         return this.amount;
     }
 
-    public CardSymbol getCardSymbol() {
+    public CardSymbolType getCardSymbol() {
         return this.symbol;
     }
 }

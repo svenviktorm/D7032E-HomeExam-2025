@@ -1,4 +1,4 @@
-package myOwnVersion.Cards.CardComponents;
+package myOwnVersion.Cards;
 
 public interface ActionEffect {
 

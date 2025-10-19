@@ -1,6 +1,6 @@
 package myOwnVersion.Cards.CardComponents;
 
-import myOwnVersion.Cards.CardSymbolReward;
+import myOwnVersion.Cards.CardSymbol;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -9,9 +9,9 @@ import java.util.List;
  */
 public class RotatableCardComponent extends HasSymbolRewardCardComponent {
     public int curentFaceIndex;
-    public final List<List<CardSymbolReward>> faces;
+    public final List<List<CardSymbol>> faces;
 
-    public RotatableCardComponent(List<List<CardSymbolReward>> faces) {
+    public RotatableCardComponent(List<List<CardSymbol>> faces) {
         super(faces.get(0));
         this.faces = faces;
         this.curentFaceIndex = 0;
