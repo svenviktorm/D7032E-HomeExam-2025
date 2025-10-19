@@ -36,9 +36,14 @@ public class Tests {
             assert(true);
             e.printStackTrace();
         }
-        
+    
 
         Vector<Card> allCards = new Vector<Card>();
+
+        // print out all cards
+        
+
+
         allCards.addAll(Card.roads);
         allCards.addAll(Card.settlements);
         allCards.addAll(Card.cities);

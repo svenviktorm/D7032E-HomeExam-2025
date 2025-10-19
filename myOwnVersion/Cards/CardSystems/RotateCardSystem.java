@@ -19,6 +19,7 @@ public class RotateCardSystem extends CardSystem {
             return false;
         } else {
             rot.curentFaceIndex ++;
+            updateRewards(rot);
             return true;
         }
     }
@@ -37,7 +38,12 @@ public class RotateCardSystem extends CardSystem {
             return false;
         } else {
             rot.curentFaceIndex --;
+            updateRewards(rot);
             return true;
         }
+    }
+
+    private void updateRewards(RotatableCardComponent rot) {
+        rot.rewards = rot.faces.get(rot.curentFaceIndex);
     }
 }

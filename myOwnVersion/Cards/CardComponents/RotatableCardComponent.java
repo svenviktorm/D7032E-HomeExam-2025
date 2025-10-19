@@ -4,6 +4,9 @@ import myOwnVersion.Cards.CardSymbolReward;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * A card component that can be rotated to show different faces, each with its own set of symbol rewards.
+ */
 public class RotatableCardComponent extends HasSymbolRewardCardComponent {
     public int curentFaceIndex;
     public final List<List<CardSymbolReward>> faces;

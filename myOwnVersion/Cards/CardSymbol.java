@@ -1,15 +1,19 @@
 package myOwnVersion.Cards;
 
-public enum CardSymbol {
-    VICTORY_POINT,
-    SKILL_POINT,
-    PROGRESS_POINT,
-    COMMERCE_POINT,
-    STRENGTH_POINT,
-    LUMBER,
-    PASTURE,
-    GOLD,
-    BRICK,
-    ORE,
-    GRAIN
+public class CardSymbolReward {
+    private final int amount;
+    private final CardSymbol symbol;
+
+    public CardSymbolReward(CardSymbol symbol, int amount) {
+        this.amount = amount;
+        this.symbol = symbol;
+    }
+
+    public int getAmount() {
+        return this.amount;
+    }
+
+    public CardSymbol getCardSymbol() {
+        return this.symbol;
+    }
 }
