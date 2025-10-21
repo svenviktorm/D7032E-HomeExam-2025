@@ -1,9 +1,11 @@
 package myOwnVersion.Cards;
 
+import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Random;
 
+import myOwnVersion.Cards.CardComponents.BrigandImuneComponent;
 import myOwnVersion.Cards.CardComponents.CardComponent;
 
 public class Card {
@@ -39,5 +41,14 @@ public class Card {
 
     public boolean hasComponent(Class<? extends CardComponent> componentClass) {
         return components.containsKey(componentClass);
+    }
+
+    public Collection<Card> getComponents() {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'getComponents'");
+    }
+
+    public void removeComponent(Class<? extends CardComponent> classType) {
+        components.remove(classType);
     }
 }

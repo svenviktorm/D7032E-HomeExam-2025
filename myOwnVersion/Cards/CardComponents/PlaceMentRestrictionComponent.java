@@ -1,6 +1,6 @@
 package myOwnVersion.Cards.CardComponents;
 
-import myOwnVersion.Cards.PlacementRestriction;
+import myOwnVersion.Cards.PlacementRestrictions.PlacementRestriction;
 
 public class PlacementRestrictionComponent {
     public final PlacementRestriction placementRestriction;

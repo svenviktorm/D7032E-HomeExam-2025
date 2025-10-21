@@ -8,7 +8,7 @@ public enum CardSymbolType {
     COMMERCE_POINT,
     STRENGTH_POINT,
     LUMBER,
-    PASTURE,
+    WOOL,
     GOLD,
     BRICK,
     ORE,

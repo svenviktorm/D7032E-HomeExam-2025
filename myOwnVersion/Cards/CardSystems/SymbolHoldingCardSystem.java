@@ -2,15 +2,15 @@ package myOwnVersion.Cards.CardSystems;
 
 import java.security.Principal;
 
-import myOwnVersion.Principality;
 import myOwnVersion.Cards.Card;
 import myOwnVersion.Cards.CardSymbolType;
-import myOwnVersion.Cards.CardComponents.ResourceHoldingCardComponent;
+import myOwnVersion.Cards.CardComponents.SymbolHoldingCardComponent;
+import myOwnVersion.GameState.Principality.Principality;
 
 /**
  * A card system for resource holding cards, tied to ResourceHoldingCardComponent.
  */
-public class ResourceHoldingCardSystem extends RotateCardSystem {
+public class SymbolHoldingCardSystem extends RotateCardSystem {
     
     /**
      * Gets the resource type of the card.
@@ -18,10 +18,10 @@ public class ResourceHoldingCardSystem extends RotateCardSystem {
      * @return the resource type, null if card does not have resource holding component
      */
     public CardSymbolType getResourceType(Card card) {
-        if (!card.hasComponent(ResourceHoldingCardComponent.class)) {
+        if (!card.hasComponent(SymbolHoldingCardComponent.class)) {
             return null;
         }
-        ResourceHoldingCardComponent res = card.getComponent(ResourceHoldingCardComponent.class);
+        SymbolHoldingCardComponent res = card.getComponent(SymbolHoldingCardComponent.class);
         return res.resourceType; 
     }
 
@@ -31,7 +31,7 @@ public class ResourceHoldingCardSystem extends RotateCardSystem {
      * @return true if the card is a resource holding card
      */
     public boolean isResourceHoldingCard(Card card) {
-        return card.hasComponent(ResourceHoldingCardComponent.class);
+        return card.hasComponent(SymbolHoldingCardComponent.class);
     }
 
     /**
@@ -40,10 +40,10 @@ public class ResourceHoldingCardSystem extends RotateCardSystem {
      * @return the amount of resources available, -1 if card does not have resource holding component
      */
     public int getAvailabeResources(Card card) {
-        if (!card.hasComponent(ResourceHoldingCardComponent.class)) {
+        if (!card.hasComponent(SymbolHoldingCardComponent.class)) {
             return -1;
         }
-        ResourceHoldingCardComponent res = card.getComponent(ResourceHoldingCardComponent.class);
+        SymbolHoldingCardComponent res = card.getComponent(SymbolHoldingCardComponent.class);
         return res.faces.get(res.curentFaceIndex).get(0).getAmount();
     }
     
@@ -53,10 +53,10 @@ public class ResourceHoldingCardSystem extends RotateCardSystem {
      * @return the available space, -1 if card does not have resource holding component
      */
     public int getAvailableSpace(Card card) {
-        if (!card.hasComponent(ResourceHoldingCardComponent.class)) {
+        if (!card.hasComponent(SymbolHoldingCardComponent.class)) {
             return -1;
         }
-        ResourceHoldingCardComponent res = card.getComponent(ResourceHoldingCardComponent.class);
+        SymbolHoldingCardComponent res = card.getComponent(SymbolHoldingCardComponent.class);
         return 3 - res.faces.get(res.curentFaceIndex).get(0).getAmount();
     }
 
@@ -67,7 +67,7 @@ public class ResourceHoldingCardSystem extends RotateCardSystem {
      * @return true if the resources were successfully removed, false otherwise
      */
     public boolean removereResources(Card card, int amount) {
-        if (!card.hasComponent(ResourceHoldingCardComponent.class)) {
+        if (!card.hasComponent(SymbolHoldingCardComponent.class)) {
             return false;
         }
         if (getAvailabeResources(card)>= amount) {
@@ -87,7 +87,7 @@ public class ResourceHoldingCardSystem extends RotateCardSystem {
      * @return true if the resources were successfully added, false otherwise
      */
     public boolean addResources(Card card, int amount) {
-        if (!card.hasComponent(ResourceHoldingCardComponent.class)) {
+        if (!card.hasComponent(SymbolHoldingCardComponent.class)) {
             return false;
         }
         if (getAvailableSpace(card) >= amount) {
@@ -100,7 +100,7 @@ public class ResourceHoldingCardSystem extends RotateCardSystem {
         }
     }
 
-    public int getAvailabeResourcesOfType(CardSymbolType type, Principality principality) {
+    public int getAvailableResourcesOfType(CardSymbolType type, Principality principality) {
         int total = 0;
         for (Card card : principality.getPlayedCards()) {
             if (!isResourceHoldingCard(card)) {

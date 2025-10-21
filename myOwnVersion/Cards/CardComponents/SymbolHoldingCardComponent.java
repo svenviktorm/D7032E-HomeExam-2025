@@ -9,10 +9,10 @@ import java.util.List;
  * A card component that holds a resource type and can be rotated to show different quantities of that resource.
  * differentiated from ResourceCardCardComponent for potential future extensions and the goldcache card.
  */
-public class ResourceHoldingCardComponent extends RotatableCardComponent {
+public class SymbolHoldingCardComponent extends RotatableCardComponent {
     public final CardSymbolType resourceType;
 
-    public ResourceHoldingCardComponent(CardSymbolType resourceType) {
+    public SymbolHoldingCardComponent(CardSymbolType resourceType) {
         super(generateResourceFaces(resourceType));
         this.resourceType = resourceType;
     }

@@ -16,4 +16,11 @@ public class CardSymbol {
     public CardSymbolType getCardSymbol() {
         return this.symbol;
     }
+
+    @Override
+    public String toString() {
+        return symbol.name() + "-" + amount;
+    }
+
+    
 }

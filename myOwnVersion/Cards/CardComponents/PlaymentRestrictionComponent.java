@@ -1,6 +1,6 @@
 package myOwnVersion.Cards.CardComponents;
 
-import myOwnVersion.Cards.PlaymentRestriction;
+import myOwnVersion.PlaymentRestricion.PlaymentRestriction;
 
 public class PlaymentRestrictionComponent implements CardComponent {
     public final PlaymentRestriction restriction;

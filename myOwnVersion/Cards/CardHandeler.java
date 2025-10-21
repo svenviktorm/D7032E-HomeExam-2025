@@ -4,7 +4,13 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
+import myOwnVersion.Cards.CardSystems.CardRemoverSystem;
 import myOwnVersion.Cards.CardSystems.CardSystem;
+import myOwnVersion.Cards.CardSystems.HasCardSymbolCardSystem;
+import myOwnVersion.Cards.CardSystems.PrintCardSystem;
+import myOwnVersion.Cards.CardSystems.ResourceCardSystem;
+import myOwnVersion.Cards.CardSystems.RotateCardSystem;
+import myOwnVersion.Cards.CardSystems.SymbolHoldingCardSystem;
 
 public class CardHandeler {
     private static CardHandeler instance;
@@ -12,6 +18,17 @@ public class CardHandeler {
     private final List<Card> cards = new ArrayList<>();
     private final HashMap<Class<CardSystem>, CardSystem> systems = new HashMap<>();
     private int nextCardID = 0;
+
+    //constructor
+    private CardHandeler() {
+        // Initialize default card systems
+        addCardSystem(new PrintCardSystem());
+        addCardSystem(new CardRemoverSystem());
+        addCardSystem(new HasCardSymbolCardSystem());
+        addCardSystem(new ResourceCardSystem());
+        addCardSystem(new RotateCardSystem());
+        addCardSystem(new SymbolHoldingCardSystem());
+    }
 
     /**
      * Gets the cardHandler from a static context, also ensures that there can only be one instance

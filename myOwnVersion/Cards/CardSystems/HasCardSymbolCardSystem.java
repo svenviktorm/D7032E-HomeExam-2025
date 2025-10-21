@@ -1,10 +1,12 @@
 package myOwnVersion.Cards.CardSystems;
 
-import myOwnVersion.Principality;
+import java.util.List;
+
 import myOwnVersion.Cards.Card;
 import myOwnVersion.Cards.CardSymbolType;
 import myOwnVersion.Cards.CardSymbol;
 import myOwnVersion.Cards.CardComponents.HasSymbolRewardCardComponent;
+import myOwnVersion.GameState.Principality.Principality;
 
 /**
  * A card system for cards that have CardSymbolRewards, tied to HasSymbolRewardCardComponent.
@@ -48,7 +50,7 @@ public class HasCardSymbolCardSystem extends CardSystem {
      */
     public CardSymbol getAllRewardsFromPrincipality (Principality principality, CardSymbolType type) {
         CardSymbol reward = new CardSymbol(type, 0);
-        Card[] cards = principality.getPlayedCards();
+        List<Card> cards = principality.getPlayedCards();
         for (Card card : cards) {
             CardSymbol cardReward = getResourceFromType(card, type);
             reward = new CardSymbol(type, reward.getAmount() + (cardReward != null ? cardReward.getAmount() : 0));
