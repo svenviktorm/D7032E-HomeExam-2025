@@ -22,4 +22,9 @@ public class Player {
         throw new UnsupportedOperationException("Unimplemented method 'discardCard'");
     }
 
+    public void addCardToHand(Card chosenCard) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'addCardToHand'");
+    }
+
 }

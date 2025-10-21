@@ -15,10 +15,10 @@ public class RotateCardSystem extends CardSystem {
             return false;
         }
         RotatableCardComponent rot = card.getComponent(RotatableCardComponent.class);
-        if (rot.currentFaceIndex >= 3) {
+        if (rot.curentFaceIndex >= 3) {
             return false;
         } else {
-            rot.currentFaceIndex ++;
+            rot.curentFaceIndex ++;
             updateRewards(rot);
             return true;
         }
@@ -34,16 +34,16 @@ public class RotateCardSystem extends CardSystem {
             return false;
         }
         RotatableCardComponent rot = card.getComponent(RotatableCardComponent.class);
-        if (rot.currentFaceIndex <= 0) {
+        if (rot.curentFaceIndex <= 0) {
             return false;
         } else {
-            rot.currentFaceIndex --;
+            rot.curentFaceIndex --;
             updateRewards(rot);
             return true;
         }
     }
 
     private void updateRewards(RotatableCardComponent rot) {
-        rot.rewards = rot.faces.get(rot.currentFaceIndex);
+        rot.rewards = rot.faces.get(rot.curentFaceIndex);
     }
 }

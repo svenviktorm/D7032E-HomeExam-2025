@@ -20,4 +20,10 @@ public class FixedProductionDiceRoller implements DiceRoller {
         return new int[]{fixedValue, new DefaultDiceRoller().roll(gameState)[1]};
     }
 
+    @Override
+    public void run() {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'run'");
+    }
+
 }

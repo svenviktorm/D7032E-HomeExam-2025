@@ -21,4 +21,6 @@ public abstract class GameState {
     public abstract Player getPlayerWithStrengthAdvantage();
 
     public abstract Player getOpposingPlayer(Player activePlayer);
+
+    protected abstract GameState getInstance();
 }

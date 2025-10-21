@@ -36,7 +36,7 @@ public class ChoseFromDrawStackDefalt implements ChoseFromDrawStack{
 
         Card chosenCard = playerComm.selectObjectQuestion("Choose a card from the draw stack", currentPlayer, availableCards, false);
 
-        currentPlayer.adCardToHand(chosenCard);
+        currentPlayer.addCardToHand(chosenCard);
         chosenDrawStack.removeCard(chosenCard);
             
         

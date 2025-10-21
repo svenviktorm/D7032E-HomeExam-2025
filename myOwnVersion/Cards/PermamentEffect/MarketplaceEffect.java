@@ -21,4 +21,10 @@ public class MarketplaceEffect implements PermanentEffect {
         // No permanent state to restore for MarketplaceEffect
     }
 
+    @Override
+    public void applyPermanentEffect(GameMaster gameMaster, GameState gameState) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'applyPermanentEffect'");
+    }
+
 }

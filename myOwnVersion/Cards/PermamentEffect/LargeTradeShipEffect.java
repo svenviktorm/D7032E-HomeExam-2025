@@ -20,4 +20,10 @@ public class LargeTradeShipEffect implements PermanentEffect {
         // No ongoing effect to restore
     }
 
+    @Override
+    public void applyPermanentEffect(GameMaster gameMaster, GameState gameState) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'applyPermanentEffect'");
+    }
+
 }

@@ -65,5 +65,10 @@ public class PlayerCommunication {
         throw new UnsupportedOperationException("Unimplemented method 'selectObjectQuestion'");
     }
 
+    public void recieveResourceTypeQuestion(String prompt, Player player, boolean b, CardSymbolType gold) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'recieveResourceTypeQuestion'");
+    }
+
 
 }
