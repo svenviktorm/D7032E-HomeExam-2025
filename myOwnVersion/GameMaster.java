@@ -49,6 +49,11 @@ public class GameMaster {
         throw new UnsupportedOperationException("Unimplemented method 'overrideMethod'");
     }
 
+    public Player getOpposingPlayer(Player advantaged) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'getOpposingPlayer'");
+    }
+
 
 
 }

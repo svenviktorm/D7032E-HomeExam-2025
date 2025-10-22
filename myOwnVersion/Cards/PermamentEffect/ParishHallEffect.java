@@ -27,8 +27,9 @@ public class ParishHallEffect implements PermanentEffect {
 
     @Override
     public void applyPermanentEffect(GameMaster gameMaster, GameState gameState) {
-        Player currentPlayer = gameState.getCurrentPlayer();
+        Player currentPlayer = gameMaster.getGameTurn().getCurrentPlayer();
         oldEffect = gameMaster.overrideMethod(ChoseFromDrawStack.class, new ChoseFromDrawStackPlayerAdvantage(2, currentPlayer));
     }
 
 }
+    

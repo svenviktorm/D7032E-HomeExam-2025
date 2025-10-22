@@ -2,10 +2,12 @@ package myOwnVersion.Cards.DirectEffects;
 
 import java.util.List;
 
+import myOwnVersion.GameMaster;
 import myOwnVersion.Cards.Card;
 import myOwnVersion.Cards.CardComponents.StandardCardInfoComponent;
 import myOwnVersion.GameState.DrawDeck;
 import myOwnVersion.GameState.GameState;
+import myOwnVersion.GameState.Principality.Principality;
 import myOwnVersion.GameTurn.GameTurn;
 import myOwnVersion.PlayerCommunication.Player;
 import myOwnVersion.PlayerCommunication.PlayerCommunication;
@@ -13,11 +15,13 @@ import myOwnVersion.PlayerCommunication.PlayerCommunication;
 public class FraternalFeudEffect implements DirectEffect {
     @Override
     public void applyEffect(GameState gameState, GameTurn gameTurn) {
-        Player activePlayer = gameState.getPlayerWithStrengthAdvantage();
+        GameMaster gameMaster = GameMaster.getInstance();
+        Principality activePrincipality = gameState.getPrincipalityWithStrengthAdvantage();
+        Player activePlayer = gameMaster.getPlayerFromPrincipality(activePrincipality);
         if (activePlayer == null) {
             return; // No player has strength advantage; nothing to do
         }
-        Player opposingPlayer = gameState.getOpposingPlayer(activePlayer);
+        Player opposingPlayer = gameMaster.getOpposingPlayer(activePlayer);
 
         List<Card> opposingCards = opposingPlayer.getCardsInHand();
         String prompt = "Fraternal Feud activated: Choose two cards to discard from your hand";

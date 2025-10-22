@@ -21,7 +21,7 @@ public class ChoseFromDrawStackDefalt implements ChoseFromDrawStack{
     public void run() {
         // make the user pay the resource cost
         GameMaster gameMaster = GameMaster.getInstance();
-        Player currentPlayer = gameMaster.getGameState().getCurrentPlayer();
+        Player currentPlayer = gameMaster.getGameTurn().getCurrentPlayer();
         PlayerCommunication playerComm = PlayerCommunication.getInstance();
         String question = "Pay " + resourceCost + " resources to choose from draw stack";
         playerComm.removeResourceAnyQuestion(question, currentPlayer, resourceCost);

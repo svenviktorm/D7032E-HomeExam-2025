@@ -33,18 +33,13 @@ public class BasicGamePostCardLoader implements PostCardLoader {
             //System.out.println("Resource Card: " + infoComp.name + ", Type: " + resComp.resourceType);
         }
         // Assign correct die values to resource cards
-        HashMap<CardSymbolType, Integer[]> resourceDieMap = new HashMap<>(
-            Map.of(
-                CardSymbolType.BRICK, new Integer[]{5, 1, 3, 2},
-                CardSymbolType.LUMBER, new Integer[]{6, 2, 2, 3},
-                CardSymbolType.ORE, new Integer[]{4, 2, 5, 6},
-                CardSymbolType.GRAIN, new Integer[]{3, 1, 6, 5},
-                CardSymbolType.WOOL, new Integer[]{6, 5, 4, 1}
-            )
-        );
-        resourceDieMap.put(
-            CardSymbolType.GOLD, new Integer[]{3, 2, 4, 1}
-        );
+        HashMap<CardSymbolType, Integer[]> resourceDieMap = new HashMap<>();
+        resourceDieMap.put(CardSymbolType.BRICK, new Integer[]{5, 1, 3, 2});
+        resourceDieMap.put(CardSymbolType.LUMBER, new Integer[]{6, 2, 2, 3});
+        resourceDieMap.put(CardSymbolType.ORE, new Integer[]{4, 2, 5, 6});
+        resourceDieMap.put(CardSymbolType.GRAIN, new Integer[]{3, 1, 6, 5});
+        resourceDieMap.put(CardSymbolType.WOOL, new Integer[]{6, 5, 4, 1});
+        resourceDieMap.put(CardSymbolType.GOLD, new Integer[]{3, 2, 4, 1});
 
         //Check size of resourceCards
         if (resourceCards.size() != resourceDieMap.size() * 4) {

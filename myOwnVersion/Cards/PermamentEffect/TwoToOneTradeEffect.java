@@ -59,9 +59,9 @@ public class TwoToOneTradeEffect implements PermanentEffect {
 
         PlayerAction action = new PlayerAction(trigger, description, effect);
 
-        gameMaster.addActionToPlayer(action, gameState.getCurrentPlayer());
+        gameMaster.addActionToPlayer(action, gameMaster.getGameTurn().getCurrentPlayer());
         this.action = action;
-        this.affectingPlayer = gameState.getCurrentPlayer();
+        this.affectingPlayer = gameMaster.getGameTurn().getCurrentPlayer();
     }
 
 }

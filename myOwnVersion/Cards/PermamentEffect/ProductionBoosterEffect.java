@@ -29,7 +29,7 @@ public class ProductionBoosterEffect implements PermanentEffect {
     }
 
     @Override
-    public void restoreOriginalState(myOwnVersion.GameMaster gameMatster, myOwnVersion.GameState.GameState gameState) {
+    public void restoreOriginalState(GameMaster gameMaster, GameState gameState) {
 
         ResourceCardSystem resourceSystem = myOwnVersion.Cards.CardHandeler.getInstance()
                 .getCardSystem(ResourceCardSystem.class);
@@ -38,8 +38,8 @@ public class ProductionBoosterEffect implements PermanentEffect {
         Position neighbor1 = new Position(pos.getColumn() + 1, pos.getRow());
         Position neighbor2 = new Position(pos.getColumn() - 1, pos.getRow());
 
-        Card neighborCard1 = gameState.getCurrentPlayer().getPrincipality().getCardAt(neighbor1);
-        Card neighborCard2 = gameState.getCurrentPlayer().getPrincipality().getCardAt(neighbor2);
+        Card neighborCard1 = gameMaster.getGameTurn().getCurrentPlayer().getPrincipality().getCardAt(neighbor1);
+        Card neighborCard2 = gameMaster.getGameTurn().getCurrentPlayer().getPrincipality().getCardAt(neighbor2);
 
         if (neighborCard1.hasComponent(DoubleRegionCardComponent.class)) {
             DoubleRegionCardComponent regionComp1 = neighborCard1.getComponent(DoubleRegionCardComponent.class);
@@ -76,8 +76,8 @@ public class ProductionBoosterEffect implements PermanentEffect {
         Position neighbor1 = new Position(pos.getColumn() + 1, pos.getRow());
         Position neighbor2 = new Position(pos.getColumn() - 1, pos.getRow());
 
-        Card neighborCard1 = gameState.getCurrentPlayer().getPrincipality().getCardAt(neighbor1);
-        Card neighborCard2 = gameState.getCurrentPlayer().getPrincipality().getCardAt(neighbor2);
+        Card neighborCard1 = gameMaster.getGameTurn().getCurrentPlayer().getPrincipality().getCardAt(neighbor1);
+        Card neighborCard2 = gameMaster.getGameTurn().getCurrentPlayer().getPrincipality().getCardAt(neighbor2);
 
         RegionCardComponent regionComp1 = neighborCard1.getComponent(RegionCardComponent.class);
         RegionCardComponent regionComp2 = neighborCard2.getComponent(RegionCardComponent.class);

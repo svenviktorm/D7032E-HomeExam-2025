@@ -2,10 +2,10 @@ package myOwnVersion.Cards.CardComponents;
 
 import myOwnVersion.Cards.PlacementRestrictions.PlacementRestriction;
 
-public class PlacementRestrictionComponent {
+public class PlaceMentRestrictionComponent {
     public final PlacementRestriction placementRestriction;
 
-    public PlacementRestrictionComponent(PlacementRestriction placementRestriction) {
+    public PlaceMentRestrictionComponent(PlacementRestriction placementRestriction) {
         this.placementRestriction = placementRestriction;
     }
 }

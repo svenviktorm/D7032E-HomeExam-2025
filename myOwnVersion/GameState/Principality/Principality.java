@@ -187,15 +187,15 @@ public class Principality {
                     int stringSize = cardStr.length();
                     int padding = (maxCardStringSize - stringSize)/2;
                     int offset = (maxCardStringSize - stringSize)%2;
-                    String paddingOffset = " ".repeat(offset);
-                    String stringPadding = " ".repeat(padding);
+                    String paddingOffset = getPadding(offset);
+                    String stringPadding = getPadding(padding);
                     sb.append("[" + stringPadding + cardStr + stringPadding + paddingOffset + "]");
                 } else {
                     int stringSize = "   ".length();
                     int padding = (maxCardStringSize - stringSize)/2;
-                    String stringPadding = " ".repeat(padding);
+                    String stringPadding = getPadding(padding);
                     int offset = (maxCardStringSize - stringSize)%2;
-                    String paddingOffset = " ".repeat(offset);
+                    String paddingOffset = getPadding(offset);
                     sb.append("[" + stringPadding + "   " + stringPadding + paddingOffset + "]");
                 }
                 if (row < maxRow) {
@@ -228,6 +228,14 @@ public class Principality {
         }
         
         return sb.toString();
+    }
+
+    private String getPadding(int offset) {
+        String padding = "";
+        for (int i = 0; i < offset; i++) {
+            padding += " ";
+        }
+        return padding;
     }
     
 }

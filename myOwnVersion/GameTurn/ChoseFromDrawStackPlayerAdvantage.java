@@ -13,7 +13,7 @@ public class ChoseFromDrawStackPlayerAdvantage extends ChoseFromDrawStackDefalt 
     }
     @Override
     public void run() {
-        Player currentPlayer = GameMaster.getInstance().getGameState().getCurrentPlayer();
+        Player currentPlayer = GameMaster.getInstance().getGameTurn().getCurrentPlayer();
         if (currentPlayer.equals(affectingPlayer)) {
             super.run();
         } else {

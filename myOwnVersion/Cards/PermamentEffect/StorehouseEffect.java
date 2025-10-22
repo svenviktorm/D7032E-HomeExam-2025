@@ -20,14 +20,14 @@ public class StorehouseEffect implements PermanentEffect {
     }
 
     @Override
-    public void restoreOriginalState(GameMaster gameMatster, GameState gameState) {
+    public void restoreOriginalState(GameMaster gameMaster, GameState gameState) {
         Position pos = origin.getComponent(PlacableCardComponent.class).position;
 
         Position neighbor1 = new Position(pos.getColumn() + 1, pos.getRow());
         Position neighbor2 = new Position(pos.getColumn() - 1, pos.getRow());
 
-        Card neighborCard1 = gameState.getCurrentPlayer().getPrincipality().getCardAt(neighbor1);
-        Card neighborCard2 = gameState.getCurrentPlayer().getPrincipality().getCardAt(neighbor2);
+        Card neighborCard1 = gameMaster.getGameTurn().getCurrentPlayer().getPrincipality().getCardAt(neighbor1);
+        Card neighborCard2 = gameMaster.getGameTurn().getCurrentPlayer().getPrincipality().getCardAt(neighbor2);
 
         neighborCard1.removeComponent(BrigandImuneComponent.class);
         neighborCard2.removeComponent(BrigandImuneComponent.class);
@@ -40,10 +40,11 @@ public class StorehouseEffect implements PermanentEffect {
         Position neighbor1 = new Position(pos.getColumn() + 1, pos.getRow());
         Position neighbor2 = new Position(pos.getColumn() - 1, pos.getRow());
 
-        Card neighborCard1 = gameState.getCurrentPlayer().getPrincipality().getCardAt(neighbor1);
-        Card neighborCard2 = gameState.getCurrentPlayer().getPrincipality().getCardAt(neighbor2);
+        Card neighborCard1 = gameMaster.getGameTurn().getCurrentPlayer().getPrincipality().getCardAt(neighbor1);
+        Card neighborCard2 = gameMaster.getGameTurn().getCurrentPlayer().getPrincipality().getCardAt(neighbor2);
 
         neighborCard1.addComponent(new BrigandImuneComponent());
+        neighborCard2.addComponent(new BrigandImuneComponent());
     }
 
 }

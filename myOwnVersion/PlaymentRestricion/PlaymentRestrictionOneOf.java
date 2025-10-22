@@ -8,7 +8,7 @@ public class PlaymentRestrictionOneOf implements PlaymentRestriction {
 
     @Override
     public boolean isPlaymentValid(Card card, Principality principality) {
-        Card[] playedCards = principality.getPlayedCards();
+        List<Card> playedCards = principality.getPlayedCards();
         String name = card.getComponent(StandardCardInfoComponent.class).name;
         for (Card playedCard : playedCards) {
             if (playedCard != null && playedCard.getComponent(StandardCardInfoComponent.class).name.equals(name)) {

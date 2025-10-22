@@ -1,5 +1,6 @@
 package myOwnVersion.GameTurn;
 
+import myOwnVersion.GameMaster;
 import myOwnVersion.Cards.Card;
 import myOwnVersion.Cards.CardComponents.StandardCardInfoComponent;
 import myOwnVersion.GameState.GameState;
@@ -35,7 +36,7 @@ public class PostStandardSettlementPlacement implements PostSettlementPlacement 
         String secondRegionName = secondRegion.getComponent(StandardCardInfoComponent.class).name;
 
         String prompt = "You have drawn two region cards: " + firstRegionName + "[0] and " + secondRegionName + "[1]. Which one do you want to place on the upper position?";
-        String answer = playerCommunication.askPlayerQuestion(prompt, gameState.getCurrentPlayer(), false, "^(0|1)$");
+        String answer = playerCommunication.askPlayerQuestion(prompt, GameMaster.getInstance().getGameTurn().getCurrentPlayer(), false, "^(0|1)$");
         if (answer.equals("0")) {
             principality.placeCard(posUpper, firstRegion);
             principality.placeCard(posLower, secondRegion);

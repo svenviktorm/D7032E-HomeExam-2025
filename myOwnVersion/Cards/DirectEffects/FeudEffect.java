@@ -5,6 +5,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
+import myOwnVersion.GameMaster;
 import myOwnVersion.Cards.Card;
 import myOwnVersion.Cards.CardHandeler;
 import myOwnVersion.Cards.CardComponents.CityCardComponent;
@@ -19,6 +20,7 @@ import myOwnVersion.GameState.DrawDeck;
 import myOwnVersion.GameState.BasicGameState;
 import myOwnVersion.GameState.GameState;
 import myOwnVersion.GameState.Principality.Position;
+import myOwnVersion.GameState.Principality.Principality;
 import myOwnVersion.GameTurn.GameTurn;
 import myOwnVersion.PlayerCommunication.Player;
 import myOwnVersion.PlayerCommunication.PlayerCommunication;
@@ -28,8 +30,10 @@ public class FeudEffect implements DirectEffect {
     public void applyEffect(GameState gameState, GameTurn gameTurn) {
         PlayerCommunication playerCommunication = PlayerCommunication.getInstance();
         Player[] players = playerCommunication.getPlayers();
-        Player advantaged = gameState.getPlayerWithStrengthAdvantage();
-        Player opponent = gameState.getOpposingPlayer(advantaged);
+        GameMaster gameMaster = GameMaster.getInstance();
+        Principality advantagedPrincipality = gameState.getPrincipalityWithStrengthAdvantage();
+        Player advantaged = gameMaster.getPlayerFromPrincipality(advantagedPrincipality);
+        Player opponent = gameMaster.getOpposingPlayer(advantaged);
 
         // Collect opponent buildings
         List<Card> oppCards = opponent.getPrincipality().getPlayedCards();

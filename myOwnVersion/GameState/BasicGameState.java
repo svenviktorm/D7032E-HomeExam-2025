@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import myOwnVersion.Cards.Card;
+import myOwnVersion.Cards.CardHandeler;
+import myOwnVersion.Cards.CardSystems.HasCardSymbolCardSystem;
 import myOwnVersion.GameState.Principality.Principality;
 import myOwnVersion.PlayerCommunication.Player;
 
@@ -12,6 +14,8 @@ public class BasicGameState extends GameState {
     private final Principality redPrincipality;
     private final Principality bluePrincipality;
     private Principality currentPlayerPrincipality;
+
+    private final List<DrawDeck> allDrawDecks;
 
     private final DrawDeck roadDeck;
     private final DrawDeck settlementDeck;
@@ -43,6 +47,16 @@ public class BasicGameState extends GameState {
         this.drawStack3 = drawStack3;
         this.drawStack4 = drawStack4;
         this.discardPile = discardPile;
+        this.allDrawDecks = new ArrayList<>();
+        allDrawDecks.add(roadDeck);
+        allDrawDecks.add(settlementDeck);
+        allDrawDecks.add(cityDeck);
+        allDrawDecks.add(regionDeck);
+        allDrawDecks.add(eventDeck);
+        allDrawDecks.add(drawStack1);
+        allDrawDecks.add(drawStack2);
+        allDrawDecks.add(drawStack3);
+        allDrawDecks.add(drawStack4);
     }
 
     public Principality getCurentPlayerPrincipality() {
@@ -141,39 +155,45 @@ public class BasicGameState extends GameState {
 
     @Override
     public Card drawCardFromType(String drawDeckType) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'drawCardFromType'");
+        for (DrawDeck deck : allDrawDecks) {
+            if (deck.getType().equals(drawDeckType)) {
+                return deck.drawCardTop();
+            }
+        }
+        return null;
     }
 
-    @Override
-    public DrawDeck getDrawDeckFromName(String deckName) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'getDrawDeckFromName'");
-    }
 
     @Override
     public List<DrawDeck> getDrawDecksFromName(String deckName) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'getDrawDecksFromName'");
+        List<DrawDeck> matchingDecks = new ArrayList<>();
+        for (DrawDeck deck : allDrawDecks) {
+            if (deck.getType().equals(deckName)) {
+                matchingDecks.add(deck);
+            }       
+        }
+        return matchingDecks;
     }
+
+
 
     @Override
-    public Player getCurrentPlayer() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'getCurrentPlayer'");
+    public Principality getPrincipalityWithStrengthAdvantage() {
+        int redStrength = calculateTotalStrength(redPrincipality);
+        int blueStrength = calculateTotalStrength(bluePrincipality);
+
+        if (redStrength > blueStrength) {
+            return redPrincipality;
+        } else if (blueStrength > redStrength) {
+            return bluePrincipality;
+        } else {
+            return null; // No strength advantage
+        }
     }
 
-    @Override
-    public Player getPlayerWithStrengthAdvantage() {
+    private int calculateTotalStrength(Principality bluePrincipality2) {
         // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'getPlayerWithStrengthAdvantage'");
+        throw new UnsupportedOperationException("Unimplemented method 'calculateTotalStrength'");
     }
-
-    @Override
-    public Player getOpposingPlayer(Player activePlayer) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'getOpposingPlayer'");
-    }
-
 
 }

@@ -16,11 +16,7 @@ public abstract class GameState {
 
     public abstract List<DrawDeck> getDrawDecksFromName(String deckName);
 
-    public abstract Player getCurrentPlayer();
 
-    public abstract Player getPlayerWithStrengthAdvantage();
+    public abstract Principality getPrincipalityWithStrengthAdvantage();
 
-    public abstract Player getOpposingPlayer(Player activePlayer);
-
-    protected abstract GameState getInstance();
 }
